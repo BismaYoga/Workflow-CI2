@@ -20,7 +20,7 @@ jobs:
         run: pip install mlflow pandas scikit-learn
 
       - name: Run MLflow Project
-        working-directory: ./MLProject_Folder
+        working-directory: ./MLProject
         run: mlflow run . --no-conda 
 
       - name: Push Artifacts to Repo
