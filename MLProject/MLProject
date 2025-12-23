@@ -1,0 +1,7 @@
+name: Iris_CI_Skilled
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    command: "python modelling.py"
