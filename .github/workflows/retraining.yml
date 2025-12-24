@@ -19,14 +19,12 @@ jobs:
         run: |
           pip install mlflow pandas scikit-learn
 
-      - name: Run mlflow project
+      - name: Run training script
+        working-directory: ./MLProject
         run: |
-          # Menghapus variabel environment agar tidak terjadi error "Run Not Found"
+          # Membersihkan semua variabel MLflow yang tersisa di environment
           unset MLFLOW_RUN_ID
           unset MLFLOW_TRACKING_URI
-          # Menjalankan MLProject menggunakan environment lokal server
-          mlflow run MLProject --env-manager local
-
-      - name: Get latest MLflow run_id
-        run: |
-          echo "Retraining finished successfully"
+          unset MLFLOW_EXPERIMENT_ID
+          # Menjalankan script secara langsung
+          python modelling.py
