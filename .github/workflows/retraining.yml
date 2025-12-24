@@ -1,30 +1,34 @@
-name: Model Retraining
+name: Machine Learning CI
+
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  retrain:
+  train-and-monitor:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.12.7'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
           pip install mlflow pandas scikit-learn
 
-      - name: Run training script
-        working-directory: ./MLProject
+      - name: Run MLflow Project
         run: |
-          # Membersihkan semua variabel MLflow yang tersisa di environment
-          unset MLFLOW_RUN_ID
-          unset MLFLOW_TRACKING_URI
-          unset MLFLOW_EXPERIMENT_ID
-          # Menjalankan script secara langsung
-          python modelling.py
+          mlflow run . --experiment-name "Padi_Production_Tuning" --env-manager local
+
+      - name: Upload Training Metrics
+        uses: actions/upload-artifact@v4
+        with:
+          name: training-results
+          path: mlruns/
