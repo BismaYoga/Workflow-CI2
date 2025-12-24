@@ -7,38 +7,33 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
 def train():
-    # Memastikan file dataset padi tersedia
     data_file = 'padi_preprocessing.csv'
     
     if not os.path.exists(data_file):
-        print(f"Error: File {data_file} tidak ditemukan!")
+        print(f"Error: {data_file} tidak ditemukan!")
         return
 
-    # Memuat data
     df = pd.read_csv(data_file)
     X = df.drop(columns=['Produksi'])
     y = df['Produksi']
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    # Menutup run yang aktif jika ada untuk menghindari konflik ID
     if mlflow.active_run():
         mlflow.end_run()
 
-    with mlflow.start_run(run_name="Padi_Retraining_Automated"):
-        # Pelatihan model Regresi
+
+    with mlflow.start_run(run_name="Padi_Retraining_Final"):
         model = RandomForestRegressor(n_estimators=100, random_state=42)
         model.fit(X_train, y_train)
         
-        # Evaluasi
         predictions = model.predict(X_test)
         mae = mean_absolute_error(y_test, predictions)
         
-        # Logging metrik dan model
         mlflow.log_metric("mae", mae)
         mlflow.sklearn.log_model(model, "model")
         
-        print(f"Retraining success. MAE: {mae}")
+        print(f"Retraining Berhasil. MAE: {mae}")
 
 if __name__ == "__main__":
     train()
