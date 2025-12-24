@@ -22,4 +22,4 @@ jobs:
 
       - name: Run MLflow Project
         run: |
-          mlflow run MLProject --no-conda
+          mlflow run MLProject --env-manager local
