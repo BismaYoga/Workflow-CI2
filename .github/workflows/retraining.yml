@@ -1,8 +1,7 @@
 name: Model Retraining
 on:
   push:
-    paths:
-      - 'MLProject/**'
+    branches: [ "main", "master" ]
 
 jobs:
   retrain:
@@ -16,10 +15,14 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install MLflow and Dependencies
+      - name: Install dependencies
         run: |
           pip install mlflow pandas scikit-learn
 
-      - name: Run MLflow Project
+      - name: Run mlflow project
         run: |
           mlflow run MLProject --env-manager local
+
+      - name: Get latest MLflow run_id
+        run: |
+          echo "Retraining finished successfully"

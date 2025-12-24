@@ -1,7 +1,5 @@
 name: Padi_Production_Retraining
 
-conda_env: conda.yaml
-
 entry_points:
   main:
     command: "python modelling.py"
