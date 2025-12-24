@@ -1,4 +1,4 @@
-name: Iris_CI_Skilled
+name: Padi_Production_Retraining
 
 conda_env: conda.yaml
 
