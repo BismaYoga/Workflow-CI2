@@ -9,4 +9,3 @@ dependencies:
       - mlflow
       - pandas
       - scikit-learn
-      - cloudpickle
