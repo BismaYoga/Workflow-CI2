@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/Bisma/Desktop/ASAH/Workflow-CI/MLProject/mlruns/0/models/m-976b313f39824ed7ad1dec87344ee9af/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.6
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.8.0
+model_id: m-976b313f39824ed7ad1dec87344ee9af
+model_size_bytes: 1650724
+model_uuid: m-976b313f39824ed7ad1dec87344ee9af
+prompts: null
+run_id: 7897f6cb73a742c08a96d20961e51483
+utc_time_created: '2025-12-24 02:44:05.810959'

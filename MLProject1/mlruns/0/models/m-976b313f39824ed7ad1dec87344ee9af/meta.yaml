@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/Bisma/Desktop/ASAH/Workflow-CI/MLProject/mlruns/0/models/m-976b313f39824ed7ad1dec87344ee9af/artifacts
+creation_timestamp: 1766544245670
+experiment_id: '0'
+last_updated_timestamp: 1766544266754
+model_id: m-976b313f39824ed7ad1dec87344ee9af
+model_type: null
+name: model
+source_run_id: 7897f6cb73a742c08a96d20961e51483
+status: 2
+status_message: null

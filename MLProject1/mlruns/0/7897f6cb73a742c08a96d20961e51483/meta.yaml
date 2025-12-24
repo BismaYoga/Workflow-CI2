@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Bisma/Desktop/ASAH/Workflow-CI/MLProject/mlruns/0/7897f6cb73a742c08a96d20961e51483/artifacts
+end_time: 1766544266806
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7897f6cb73a742c08a96d20961e51483
+run_name: Padi_Retraining_Final
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1766544244591
+status: 3
+tags: []
+user_id: Bisma
